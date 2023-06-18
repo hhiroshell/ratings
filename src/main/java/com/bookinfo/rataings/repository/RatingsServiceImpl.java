@@ -1,8 +1,5 @@
 package com.bookinfo.rataings.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.bookinfo.rataings.Rating;
 import com.bookinfo.rataings.Ratings;
 import com.bookinfo.rataings.RatingsService;
@@ -11,6 +8,9 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Transactional
 @ApplicationScoped
