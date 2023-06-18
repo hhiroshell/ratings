@@ -8,13 +8,15 @@ import com.bookinfo.rataings.Ratings;
 import com.bookinfo.rataings.RatingsService;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
+@Transactional
 @ApplicationScoped
 public class RatingsServiceImpl implements RatingsService {
 
-    @Inject
+    @PersistenceContext
     EntityManager em;
 
     @Override
@@ -31,5 +33,16 @@ public class RatingsServiceImpl implements RatingsService {
         Ratings ratings = new Ratings(productId, ratingList);
         return ratings;
     }
-    
+
+    @Override
+    public void add(Ratings ratings) {
+        // em.getTransaction().begin();
+        for (Rating rating : ratings.getRatings()) {
+            RatingEntity entity = new RatingEntity();
+            entity.setProductId(ratings.getProductId());
+            entity.setReviewer(rating.getReviewer());
+            entity.setStars(rating.getStars());
+            em.persist(entity);
+        }
+    }
 }
