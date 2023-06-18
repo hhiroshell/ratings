@@ -36,7 +36,6 @@ public class RatingsServiceImpl implements RatingsService {
 
     @Override
     public void add(Ratings ratings) {
-        // em.getTransaction().begin();
         for (Rating rating : ratings.getRatings()) {
             RatingEntity entity = new RatingEntity();
             entity.setProductId(ratings.getProductId());
