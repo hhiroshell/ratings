@@ -1,4 +1,4 @@
-package org.acme;
+package com.bookinfo.rataings;
 
 import java.util.List;
 

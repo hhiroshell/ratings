@@ -1,4 +1,4 @@
-package org.acme;
+package com.bookinfo.rataings;
 
 public class Rating {
     private String reviewer;

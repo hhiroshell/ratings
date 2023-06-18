@@ -1,4 +1,4 @@
-package org.acme;
+package com.bookinfo.rataings;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -7,16 +7,16 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("/ratings")
-public class GreetingResource {
+public class RatingsResource {
 
     @Inject
-    GreetingService service;
+    RatingsService service;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{productId}")
     public Ratings greeting(int productId) {
-        return service.greeting(productId);
+        return service.getByProductId(productId);
     }
 
 }
